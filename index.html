@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Wildan A.</title>
+  <link rel="icon" type="image/x-icon" href="img/icon.png"/>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-about">
+    <iframe src="about.html"></iframe>
+  </div>
+  <div class="container">
+    <div class="identity">
+      Wildan A. is a multi-disciplinary designer based in Bandung (ID).<br>
+      Working across design, direction, and new media art. He is available for freelance projects.
+    </div>
+    <div class="nav">
+      <a href="#">SHOP</a>
+      <a href="work.html">WORK</a>
+      <a href="about.html">ABOUT</a>
+    </div>
+<div class="photo">
+  <img src="img/aa.png" alt="Wildan A. Portrait">
+</div>
+
+    <div class="date-time">
+      <div>
+        <span class="label">Date</span><br>
+        <span id="date"></span>
+      </div>
+      <div>
+        <span class="label">Local time</span><br>
+        <span id="time"></span>
+      </div>
+    </div>
+  </div>
+  <div class="center-screen">
+    <h1 class="typing">“9 A.M – 5 P.M Responsibility.  5 P.M – 9 A.M Creativity.”</h1>
+  </div>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById("date").textContent = now.toLocaleDateString('en-US', options);
+      document.getElementById("time").textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+</body>
+</html>

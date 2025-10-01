@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Wildan A.</title>
+  <link rel="icon" type="image/x-icon" href="img/icon.png"/>
+  <link rel="stylesheet" href="css/about.css">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-index">
+    <iframe src="index.html"></iframe>
+  </div>
+
+  <div class="container">
+
+    <div class="top-nav">
+      <div class="nav-left">
+        <a href="#">© Wildan A.</a>
+      </div>
+      <div class="nav-right">
+        <a href="index.html">HOME</a>
+      </div>
+    </div>
+
+    <section class="bio">
+      <h2>Biography</h2>
+      <p>
+       Wildan Alfurqon (b. 2001, Bandung) is an artist and multi-disciplinary designer with a background in Sculpture from the Indonesian Institute of Arts and Culture, Bandung. He works as a Graphic Designer, focusing on branding, visual identity, and conceptual storytelling. His practice combines clarity and creativity to shape brand identities, design systems, and campaigns, while also developing emotional resonance through creative direction, design, and experiences that connect both online and offline.
+      </p>
+    </section>
+
+    <div class="bottom-grid">
+      <div class="col">
+        <h3>INFO</h3>
+        <p><a href="mailto:wildanalfrqn@gmail.com">Email</a></p>
+        <p><a href="https://instagram.com/wildanfqn" target="_blank">Instagram</a></p>
+        <p><a href="https://www.are.na/wildan-alfurqon" target="_blank">Are.na</a></p>
+        <p><a href="https://behance.net/wildanalfurqon" target="_blank">Behance</a></p>
+      </div>
+
+      <div class="col">
+        <h3>SERVICE</h3>
+        <p>Creative Direction</p>
+        <p>Graphic Design</p>
+        <p>Motion Graphic</p>
+      </div>
+
+      <div class="col">
+        <h3>WORK EXPERIENCE</h3>
+        <p><strong>2020-Present</strong><br>Freelance Graphic & Motion Designer</p>
+        <p><strong>2022</strong><br>Graphic Designer, at Maximum Ultimate Organizer<br>Bandung, Indonesia</p>
+        <p><strong>2023</strong><br>(Internships) Visual Artist, at Sembilan Matahari<br>Bandung, Indonesia</p>
+        <p><strong>2024</strong><br>(Internships) Graphic Designer, at Graphicook Studio<br>Bandung, Indonesia</p>
+        <p><strong>2024-Present</strong><br>Graphic Designer, at Unitedhart<br>Bandung, Indonesia</p>
+      </div>
+
+<div class="col exhibition">
+  <h3 class="toggle-title">MORE</h3>
+  
+  <div class="content-wrapper">
+    <h3>EXHIBITION</h3>
+    <p><strong>2020</strong><br>Me, My Self & I<br>Academic Program, Online Exhibition</p>
+    <p><strong>2021</strong><br>Experimental Drawing<br>Galeri212, Bandung, Indonesia</p>
+    <p><strong>2023</strong><br>Boleh Bootleg, Boleh Fiktif, Ruang Tamu Cut and Rescue PT Produksi Film Negara (PFN), Pekan Kebudayaan Nasional<br>Jakarta, Indonesia</p>
+    <p><strong>2023</strong><br>Symbiosis, Connectivity in Art<br>Thee Huis Gallery, Bandung, Indonesia</p>
+    <p><strong>2023</strong><br>Video Projection Mapping "A Cure For Sanity", ITB International Light Festival: Kinarya Immersiva<br>Bandung, Indonesia</p>
+    <p><strong>2023</strong><br>Short Film, "Praktikum" Collective Studies by The One Minutes Video, The One Minutes Collection<br>Netherlands</p>
+    <p><strong>2024</strong><br>Aksara Festival "Aksara:Bytes" Makmur Studio at Gudskul Ekosistem<br>Jakarta, Indonesia</p>
+    <p><strong>2024</strong><br>"Let's Be Friend" Makmur Djaja<br>M Bloc Space, Jakarta, Indonesia</p>
+    <h3>SCREENINGS</h3>
+    <p><strong>Praktikum</strong><br>6okken, Fujikawacguchiko Town (JP)<br>De Bouwput, Amsterdam (NL)<br>Jakarta Institute of Art (ID)<br>HAL 25, Alkmaar (NL)<br>Kampen Public Library (NL)<br>NDSM Fuse, Amsterdam (NL)<br>Remise, Amsterdam (NL)<br>Tap Je Banke Walking Route, Kampen (NL)<br>Gudskul Ekosistem, Jakarta (ID)</p>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const title = document.querySelector(".exhibition .toggle-title");
+    const wrapper = document.querySelector(".exhibition .content-wrapper");
+
+    title.addEventListener("click", () => {
+      wrapper.classList.toggle("open");
+      title.textContent = wrapper.classList.contains("open") ? "LESS" : "MORE";
+    });
+  });
+</script>
+
+</body>
+</html>
