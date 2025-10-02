@@ -37,19 +37,9 @@
       </div>
     </div>
   </div>
-  <div class="center-screen">
-    <h1 class="typing">“9 A.M – 5 P.M Responsibility.  5 P.M – 9 A.M Creativity.”</h1>
-  </div>
-
-  <script>
-    function updateDateTime() {
-      const now = new Date();
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      document.getElementById("date").textContent = now.toLocaleDateString('en-US', options);
-      document.getElementById("time").textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-  </script>
+ <div class="center-screen">
+  <h1 class="typing" id="quote"></h1>
+</div>
+<script src="js/script.js"></script>
 </body>
 </html>
