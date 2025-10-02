@@ -1,22 +1,31 @@
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../img/yy.jpg") repeat;
+  background-size: cover;
+  opacity: 50;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 9999; /* tetap tinggi biar kelihatan */
+}
 
 body {
   font-family: 'Schibsted Grotesk', Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-  background: #e4e4e2;
+  background: #ffffff;
   color: #000;
   letter-spacing: -0.04em; 
   font-weight: 600; 
   color: #000000; 
   text-shadow: 0px 0px 1px rgba(1, 24, 15, 0.767); 
 }
-
-
 .photo {
   position: absolute;
   top: 30%; 
   right: 50px;
-  width: 300px;   
+  width: 400px;   
   height: auto;
   border: 1px solid black; 
   display: flex;
@@ -28,7 +37,8 @@ body {
   width: 100%;
   height: auto;
   object-fit: cover;
-  filter: grayscale(100%) blur(0px); 
+  filter: grayscale(100%) blur(10px); 
+  
 }
 
 
@@ -75,8 +85,8 @@ body {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -1;
-  opacity: 0.1; 
-  filter: blur(1px);
+  opacity: 0.2; 
+  filter: blur(2px);
   pointer-events: none; 
 }
 
@@ -143,7 +153,7 @@ body {
   .photo {
     position: static;
     margin: 30px auto;
-    width: 80%;
+    width: 100%;
     max-width: 280px;
   }
 }
