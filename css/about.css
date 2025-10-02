@@ -7,7 +7,7 @@ body::before {
   opacity: 50;
   mix-blend-mode: overlay;
   pointer-events: none;
-  z-index: 9999; /* tetap tinggi biar kelihatan */
+  z-index: 9999;
 }
 
 body {
@@ -181,3 +181,4 @@ body {
     margin-top: 40px;
   }
 }
+
