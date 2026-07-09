@@ -145,6 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (bg) {
       bg.style.display = 'none';
     }
+  } else {
+    // Only load background iframes if we are in the main window
+    const iframes = document.querySelectorAll('iframe[data-src]');
+    iframes.forEach(iframe => {
+      iframe.src = iframe.getAttribute('data-src');
+    });
   }
 
   fetchArenaChannel();
