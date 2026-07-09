@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  base: '/Portfolio2026/',
   build: {
     rollupOptions: {
       input: {
