@@ -49,7 +49,7 @@ const portfolioData = [
     id: 'DELASOLxUH',
     title: 'Unitedhart X Maison De La Sol',
     year: '2025',
-    desc: "DELASOL × UNITEDHART is a collaborative apparel collection that merges the visual identities of both brands into a cohesive product experience. As the Product Designer, I was responsible for designing the collection across multiple categories, including work jackets, T-shirts, and supporting accessories, while also developing key promotional visuals such as event posters. The project focused on translating the collaboration's creative direction into wearable products and a consistent visual campaign.",
+    desc: "MAISON DE LA SOL × UNITEDHART is a collaborative apparel collection that merges the visual identities of both brands into a cohesive product experience. As the Product Designer, I was responsible for designing the collection across multiple categories, including work jackets, T-shirts, and supporting accessories, while also developing key promotional visuals such as event posters. The project focused on translating the collaboration's creative direction into wearable products and a consistent visual campaign.",
     thumbnail: 'img/DELASOL-UH.png',
     images: [
       'img/DELASOLxUH/1.png',
@@ -139,7 +139,7 @@ function renderMediaHtml(src, alt, lazy = true) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  
+
   if (window !== window.top) {
     const bg = document.querySelector('.bg-about, .bg-index');
     if (bg) {
@@ -204,7 +204,7 @@ function renderProjects() {
   if (mobileCol) mobileCol.innerHTML = '';
 
   portfolioData.forEach((proj, idx) => {
-    
+
     const desktopHtml = `
       <article class="project-card" data-project="${proj.id}">
         <a href="#" class="project-link">
@@ -322,7 +322,7 @@ function initWorkPage() {
 
   document.addEventListener('wheel', (e) => {
     if (window.innerWidth <= 900) return;
-    
+
     const lightbox = document.getElementById('lightbox-overlay');
     if (lightbox && lightbox.classList.contains('open')) return;
 
@@ -445,7 +445,7 @@ function initLightbox() {
     project.images.forEach((src, i) => {
       const slide = document.createElement('div');
       slide.className = 'lightbox-slide';
-      
+
       const ext = src.split('.').pop().toLowerCase();
       if (['mp4', 'webm'].includes(ext)) {
         const vid = document.createElement('video');
@@ -552,7 +552,7 @@ async function fetchArenaChannel() {
   if (!grid || isArenaLoading || !hasMoreArena) return;
 
   isArenaLoading = true;
-  
+
   const channelSlug = 'design-thoughts-du2sofvhggo';
 
   const loadingEl = document.getElementById('arena-loading');
@@ -573,7 +573,7 @@ async function fetchArenaChannel() {
     if (cachedData && cachedTime && (Date.now() - parseInt(cachedTime)) < ONE_DAY) {
       data = JSON.parse(cachedData);
     } else {
-      
+
       const res = await fetch(`https://api.are.na/v2/channels/${channelSlug}/contents?per=100&page=${arenaPage}`);
       data = await res.json();
 
@@ -590,7 +590,7 @@ async function fetchArenaChannel() {
 
     data.contents.forEach(item => {
       if (item.class === 'Image' || (item.class === 'Link' && item.image) || (item.class === 'Attachment' && item.image)) {
-        
+
         const projectId = `arena-${item.id}-${Math.random().toString(36).substring(7)}`;
 
         portfolioData.push({
@@ -635,7 +635,7 @@ function initArenaScroll() {
   if (!grid) return;
 
   window.addEventListener('scroll', () => {
-    
+
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
       fetchArenaChannel();
     }
