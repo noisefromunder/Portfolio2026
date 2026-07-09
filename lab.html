@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab - Wildan A.</title>
+  <meta name="title" content="Lab - Wildan A.">
+  <meta name="description" content="Lab experiments and explorations by Wildan A., multi-disciplinary designer and new media artist.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wildan.id/lab.html">
+  <meta property="og:title" content="Lab - Wildan A.">
+  <meta property="og:description" content="Lab experiments and explorations by Wildan A., multi-disciplinary designer and new media artist.">
+  <meta property="og:image" content="https://wildan.id/img/icon.png">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://wildan.id/lab.html">
+  <meta property="twitter:title" content="Lab - Wildan A.">
+  <meta property="twitter:description" content="Lab experiments and explorations by Wildan A., multi-disciplinary designer and new media artist.">
+  <meta property="twitter:image" content="https://wildan.id/img/icon.png">
+
+  <link rel="icon" type="image/x-icon" href="img/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/lab.css?v=7">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <main class="lab-container">
+    <header class="identity">
+      Wildan A. is a multi-disciplinary designer based in Bandung (ID).<br>
+      Working across design, direction, and new media art. He is available for freelance projects.
+    </header>
+
+    <nav class="nav">
+      <a href="https://wildanalfrqn.gumroad.com/" target="_blank">SHOP</a>
+      <a href="work">WORK</a>
+      <a href="lab">LAB</a>
+      <a href="about">ABOUT</a>
+    </nav>
+
+    <div id="arena-grid" class="arena-grid">
+      <p id="arena-loading" class="arena-loading">Loading inspiration...</p>
+    </div>
+  </main>
+
+  <div class="lightbox-overlay" id="lightbox-overlay">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <button class="lightbox-close" id="lightbox-close">CLOSE ✕</button>
+    
+    <div class="lightbox-content">
+      <div class="lightbox-carousel" id="lightbox-carousel">
+        <div class="lightbox-slides" id="lightbox-slides">
+          
+        </div>
+      </div>
+    </div>
+
+    <button class="lightbox-arrow lightbox-arrow-left" id="lightbox-prev" aria-label="Previous image">←</button>
+    <button class="lightbox-arrow lightbox-arrow-right" id="lightbox-next" aria-label="Next image">→</button>
+
+    <div class="lightbox-info" id="lightbox-info">
+      <div class="lightbox-info-left">
+        <div class="lightbox-info-header">
+          <span class="lightbox-title" id="lightbox-title"></span>
+          <button id="lightbox-desc-toggle" class="lightbox-desc-toggle" aria-label="Toggle description">HIDE INFO</button>
+        </div>
+        <span class="lightbox-desc" id="lightbox-desc"></span>
+      </div>
+      <div class="lightbox-info-right">
+        <span class="lightbox-counter" id="lightbox-counter"></span>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/script.js"></script>
+</body>
+</html>
