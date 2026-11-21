@@ -22,8 +22,40 @@ class Engine {
  if(this.clock%16===0){let base=100*2**(cutnorm*4.6-.636),sweep=(3.36*e+(this.accented?.75*this.accent/60:0))*this.fe;let cut=clamp(base*2**sweep,80,4400);this.g=Math.tan(Math.PI*cut/20000);this.k=1/(1.6+7.2*m);}
  let a1=1/(1+this.g*(this.g+this.k)),a2=this.g*a1,a3=this.g*a2,v3=x*.45-this.ic2,v1=a1*this.ic1+a2*v3,v2=this.ic2+a2*this.ic1+a3*v3;this.ic1=2*v1-this.ic1;this.ic2=2*v2-this.ic2;let y=Math.tanh(v2*(1.15+2.1*m)) * this.amp*.82;let pwm=clamp(Math.round(128+y*127),0,255);this.lastPWM=pwm;
  // Nominal REV A passive output, retained from the V0.1 simulator.
- const u=5*pwm/256,a=this.x1,b=this.x2,c=this.x3;const filtered=.24226804123711337*(b-c);this.x1=.20183385723193736*a+.07653586283817065*b+.028388923121202985*c+.6932413568086889*u;this.x2=.2525683473659628*a+.20552387272587547*b+.18160084008594682*c+.36030693982221507*u;this.x3=.00009368344629996987*a+.00018160084008594696*b+.9996644455351316*c+.0000602701784825542*u;const raw=(u-2.5)*.182;this.rawMix+=((this.mode==='raw'?1:0)-this.rawMix)*.004;this.clock++;return (filtered+(raw-filtered)*this.rawMix)*1.6;}
- state(){return {running:this.running,mutation:this.mutation,held:this.held,octave:this.octave,wave:this.waveShape,pending:this.pending,current:this.current,led:this.clock<this.ledUntil,bpm:this.bpm,density:this.density,notes:this.pitch.map(i=>noteName(NOTES[i]+this.octave*12)),active:this.rankOf.map(r=>r<this.density),accents:this.accents,slides:this.pitch.map((_,i)=>this.slideAt(i)),cycle:this.cycleCount,revision:this.revision,event:this.event};}
+ const u=5*pwm/256,a=this.x1,b=this.x2,c=this.x3;const filtered=.24226804123711337*(b-c);this.x1=.20183385723193736*a+.07653586283817065*b+.028388923121202985*c+.6932413568086889*u;this.x2=.2525683473659628*a+.20552387272587547*b+.18160084008594682*c+.36030693982221507*u;this.x3=.00009368344629996987*a+.00018160084008594696*b+.9996644455351316*c+.0000602701784825542*u;const raw=(u-2.5)*.182;this.rawMix+=((this.mode==='raw'?1:0)-this.rawMix)*.004;this.clock++;return clamp((filtered+(raw-filtered)*this.rawMix)*1.35,-0.98,0.98);}
+ state(){return {running:this.running,mutation:this.mutation,held:this.held,octave:this.octave,wave:this.waveShape,pending:this.pending,current:this.current,bpm:this.bpm,density:this.density,cycle:this.cycleCount,revision:this.revision,event:this.event};}
  message(m){switch(m.type){case 'restore':Object.assign(this,m.state);this.rank();break;case 'controls':this.setControls(...m.values);break;case 'run':this.toggle(m.seed);break;case 'generate':this.generate(m.seed);break;case 'hold':this.toggleHold();break;case 'octave':this.octave=m.value;break;case 'filter':this.mode=m.value;break;case 'wave':this.waveShape=m.value;break;}}
 }
-export class Renderer{constructor(rate,notify){this.engine=new Engine();this.ratio=20000/rate;this.frac=0;this.a=0;this.b=0;this.counter=0;this.notify=notify;this.interval=Math.max(128,Math.round(rate/30));}render(out){for(let i=0;i<out.length;i++){this.frac+=this.ratio;while(this.frac>=1){this.frac-=1;this.a=this.b;this.b=this.engine.next();}out[i]=this.a+(this.b-this.a)*this.frac;}this.counter+=out.length;if(this.counter>=this.interval){this.counter%=this.interval;this.notify(this.engine.state());}}}
+export class Renderer{
+  constructor(rate,notify){
+    this.engine=new Engine();
+    this.ratio=20000/rate;
+    this.frac=0;
+    this.a=0;
+    this.b=0;
+    this.counter=0;
+    this.notify=notify;
+    this.interval=Math.max(128,Math.round(rate/30));
+    this.lastState=null;
+  }
+  render(out){
+    for(let i=0;i<out.length;i++){
+      this.frac+=this.ratio;
+      while(this.frac>=1){
+        this.frac-=1;
+        this.a=this.b;
+        this.b=this.engine.next();
+      }
+      out[i]=this.a+(this.b-this.a)*this.frac;
+    }
+    this.counter+=out.length;
+    if(this.counter>=this.interval){
+      this.counter%=this.interval;
+      const e=this.engine;
+      if(!this.lastState||this.lastState.current!==e.current||this.lastState.running!==e.running||this.lastState.revision!==e.revision||this.lastState.held!==e.held||this.lastState.pending!==e.pending){
+        this.lastState={running:e.running,current:e.current,revision:e.revision,pending:e.pending,held:e.held};
+        this.notify(this.lastState);
+      }
+    }
+  }
+}

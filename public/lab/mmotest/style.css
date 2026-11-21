@@ -53,6 +53,9 @@ html,
   opacity: 0.2;
   filter: blur(2px);
   overflow: hidden;
+  pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .bg-index iframe {

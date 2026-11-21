@@ -7,7 +7,12 @@ class AcidProcessor extends AudioWorkletProcessor {
     this.port.onmessage = ({data}) => this.renderer.engine.message(data);
   }
   process(inputs, outputs) {
-    this.renderer.render(outputs[0][0]);
+    const output = outputs[0];
+    if (!output || !output[0]) return true;
+    this.renderer.render(output[0]);
+    if (output.length > 1) {
+      output[1].set(output[0]);
+    }
     return true;
   }
 }

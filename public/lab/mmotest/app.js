@@ -14,10 +14,11 @@ function place(element, ref) {
 }
 function send(type, extra={}) {node?.port.postMessage({type,...extra});}
 async function audio() {
-  context ??= new AudioContext();
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  context ??= new AudioContextClass({ latencyHint: 'playback' });
   await context.resume();
   ready ??= context.audioWorklet.addModule('./processor.js').then(() => {
-    node = new AudioWorkletNode(context,'acid-engine',{numberOfInputs:0,outputChannelCount:[1]});
+    node = new AudioWorkletNode(context,'acid-engine',{numberOfInputs:0,outputChannelCount:[2]});
     node.port.onmessage = ({data:s}) => {
       lamps.forEach((lamp,i) => lamp.classList.toggle('on',s.running && s.current===i));
       document.querySelector('#pattern').textContent = s.revision + (s.pending?' · queued':'') + (s.held?' · HOLD':'');
