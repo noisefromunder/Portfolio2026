@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /lab/mmotest/
 
 Sitemap: https://wwwildan.online/sitemap.xml

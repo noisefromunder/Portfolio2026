@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>MMO ACID V0.5 · Wildan A.</title>
+
+  <link rel="icon" type="image/x-icon" href="/img/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="bg-index">
+    <iframe data-src="/index.html" title="Index Background"></iframe>
+  </div>
+
+  <main class="container">
+
+    <nav class="top-nav">
+      <div class="nav-left">
+        <a href="#">© Wildan A.</a>
+      </div>
+      <div class="nav-right">
+        <a href="/">HOME</a>
+      </div>
+    </nav>
+
+    <div class="synth-layout">
+      <section class="intro">
+        <p class="tag">Dissimilar Assemble-REPRODUCIBLE BODY</p>
+        <h2>MMO ACID V0.5</h2>
+        <p class="guide">Press RUN to play the synth. Drag the knobs up or down to shape the sound.</p>
+        <button id="play">▶ Start audio &amp; play</button>
+        <output id="status" aria-live="polite">Ready to play</output>
+        <dl>
+          <dt>Tempo</dt>
+          <dd id="tempo">134 BPM</dd>
+          <dt>Wave</dt>
+          <dd id="wave">Saw</dd>
+          <dt>Octave</dt>
+          <dd id="oct">0</dd>
+          <dt>Pattern</dt>
+          <dd id="pattern">1</dd>
+        </dl>
+      </section>
+
+      <section id="panel" aria-label="Interactive synthesizer panel">
+        <img src="panel.svg" alt="PCB A6 with Dissimilar Assemble artwork">
+      </section>
+    </div>
+
+  </main>
+
+  <script>
+    // Lazy-load background iframe (same as about.html)
+    document.querySelectorAll('.bg-index iframe[data-src]').forEach(iframe => {
+      iframe.src = iframe.dataset.src;
+    });
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+
+</html>

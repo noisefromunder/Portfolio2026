@@ -1,0 +1,363 @@
+/* =============================================================
+   BASE — matches about.css from wwwildan.online
+   ============================================================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("/img/yy.jpg") repeat;
+  background-size: cover;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+body {
+  font-family: 'Schibsted Grotesk', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #000;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  text-shadow: 0px 0px 1px rgba(1, 24, 15, 0.767);
+}
+
+::-webkit-scrollbar {
+  width: 0px !important;
+  height: 0px !important;
+  background: transparent !important;
+  display: none !important;
+}
+
+body,
+html,
+* {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* =============================================================
+   BACKGROUND IFRAME — same as about.html (.bg-index)
+   ============================================================= */
+
+.bg-index {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.2;
+  filter: blur(2px);
+  overflow: hidden;
+}
+
+.bg-index iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+}
+
+/* =============================================================
+   NAVIGATION — identical to about.html (.top-nav, .nav-left, .nav-right)
+   ============================================================= */
+
+.container {
+  position: relative;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.nav-left {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+
+.nav-right {
+  position: absolute;
+  top: 18px;
+  right: 30px;
+}
+
+.nav-left a,
+.nav-right a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =============================================================
+   SYNTH LAYOUT
+   ============================================================= */
+
+.synth-layout {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(32px, 5vw, 70px);
+  max-width: 1060px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro .tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.45);
+  margin: 0 0 16px 0;
+}
+
+.intro h1 {
+  font-family: 'Schibsted Grotesk', Arial, Helvetica, sans-serif;
+  font-size: clamp(38px, 4.8vw, 68px);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  margin: 0 0 16px 0;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.intro h1 i {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.intro h2 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  color: #000000;
+}
+
+.guide {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: -0.02em;
+  max-width: 36ch;
+  margin: 0 0 24px 0;
+}
+
+#play {
+  font-family: 'Schibsted Grotesk', Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 0;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#play:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+output {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 0.55);
+  margin: 16px 0 20px;
+  min-height: 1.6em;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  max-width: 280px;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+dt,
+dd {
+  margin: 0;
+  padding: 8px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  font-size: 12px;
+  letter-spacing: -0.02em;
+}
+
+dt {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+}
+
+dd {
+  font-weight: 700;
+  color: #000000;
+  text-align: right;
+}
+
+/* =============================================================
+   PANEL PCB INTERAKTIF (PERTAHANKAN SEPERTI BAWAAN)
+   ============================================================= */
+
+#panel {
+  position: relative;
+  aspect-ratio: 105/148;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #a2a68e, 1px 3px 0 #353b28, 4px 10px 13px #22291d45;
+}
+
+#panel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.control,
+.lamp {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0;
+}
+
+.knob {
+  width: 14.25%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid #171916;
+  background: repeating-conic-gradient(#232522 0deg 2deg, #333430 2deg 4deg);
+  box-shadow: inset 1px 1px 1px #898981, inset -2px -3px 3px #10110f, 1px 3px 0 #161914, 3px 5px 4px #08160eb3;
+  touch-action: none;
+  cursor: ns-resize;
+}
+
+.knob::before {
+  content: "";
+  position: absolute;
+  inset: 3% 4% 8%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 28% 18%, #484946, #2a2b29 72%, #20211f);
+  box-shadow: inset 1px 1px 1px #686964;
+}
+
+.knob::after {
+  content: "";
+  position: absolute;
+  inset: 2% 3% 7%;
+  background: linear-gradient(90deg, #b9b9ae, #fffdf1, #cfcec1) center 5% / 6% 32% no-repeat;
+  transform: rotate(var(--angle));
+}
+
+.key {
+  width: 5.72%;
+  aspect-ratio: 1;
+  border-radius: 12%;
+  border: 1px solid #555;
+  background: radial-gradient(circle at center, #30312e 0 34%, #151614 40%, #85857e 45%, transparent 50%),
+    linear-gradient(135deg, #eeeae0, #93948b 42%, #c5c4b9 65%, #676b60);
+  box-shadow: 1px 2px 1px #101710a6;
+  cursor: pointer;
+}
+
+.key[aria-pressed=true] {
+  outline: 2px solid #e3ba60;
+}
+
+.lamp {
+  width: 2.86%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 31% 24%, #ffc9aa, #b82e1a 22%, #730b08 62%, #390804);
+  box-shadow: 0 0 0 1px #ab9768, 1px 2px 2px #192019;
+}
+
+.lamp.on {
+  background: radial-gradient(circle at 32% 26%, #fffada, #ff9c65 28%, #ff3317 65%, #d01808);
+  box-shadow: 0 0 9px #ff472a;
+}
+
+.control:focus-visible {
+  outline: 3px solid #fbca56;
+  outline-offset: 2px;
+}
+
+/* =============================================================
+   RESPONSIVE — matches about.css mobile breakpoint
+   ============================================================= */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .nav-left {
+    position: static;
+  }
+
+  .nav-right {
+    position: static;
+  }
+
+  .top-nav a {
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+  }
+
+  .synth-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 20px;
+  }
+
+  .intro,
+  #panel {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .intro h1 {
+    font-size: 36px;
+    margin: 8px 0;
+  }
+
+  .intro h1 br {
+    display: none;
+  }
+
+  .guide {
+    max-width: none;
+    margin: 6px 0 18px;
+  }
+}
